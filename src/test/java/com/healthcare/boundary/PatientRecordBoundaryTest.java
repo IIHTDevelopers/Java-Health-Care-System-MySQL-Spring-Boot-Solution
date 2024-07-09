@@ -35,7 +35,7 @@ public class PatientRecordBoundaryTest {
 	}
 
 	@Test
-	public void testUserIdNotNull() throws IOException {
+	public void testPatientUserIdNotNull() throws IOException {
 		PatientRecordDTO patientRecordDTO = new PatientRecordDTO();
 		patientRecordDTO.setUserId(null);
 		Set<ConstraintViolation<PatientRecordDTO>> violations = validator.validate(patientRecordDTO);
@@ -47,7 +47,7 @@ public class PatientRecordBoundaryTest {
 	}
 
 	@Test
-	public void testDoctorIdNotNull() throws IOException {
+	public void testPatientDoctorIdNotNull() throws IOException {
 		PatientRecordDTO patientRecordDTO = new PatientRecordDTO();
 		patientRecordDTO.setDoctorId(null);
 		Set<ConstraintViolation<PatientRecordDTO>> violations = validator.validate(patientRecordDTO);
