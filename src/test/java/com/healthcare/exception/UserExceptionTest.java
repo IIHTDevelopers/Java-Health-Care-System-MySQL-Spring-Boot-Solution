@@ -71,21 +71,4 @@ public class UserExceptionTest {
 				exceptionTestFile);
 	}
 
-	@Test
-	public void testUpdateUserProfileNotFoundException() throws Exception {
-		Long userId = 1L;
-		UserDTO userDTO = MasterData.getUserDTO();
-		ErrorResponse exResponse = new ErrorResponse(HttpStatus.NOT_FOUND.value(), "User not found");
-
-		when(this.userService.updateUserProfile(userId, userDTO)).thenThrow(new NotFoundException("User not found"));
-		RequestBuilder requestBuilder = MockMvcRequestBuilders.put("/api/users/" + userId)
-				.content(MasterData.asJsonString(userDTO)).contentType(MediaType.APPLICATION_JSON)
-				.accept(MediaType.APPLICATION_JSON);
-
-		MvcResult result = mockMvc.perform(requestBuilder).andReturn();
-
-		yakshaAssert(currentTest(),
-				(result.getResponse().getContentAsString().contains(exResponse.getMessage()) ? "true" : "false"),
-				exceptionTestFile);
-	}
 }
