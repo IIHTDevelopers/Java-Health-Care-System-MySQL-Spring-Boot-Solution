@@ -35,7 +35,7 @@ public class AppointmentBoundaryTest {
 	}
 
 	@Test
-	public void testUserIdNotNull() throws IOException {
+	public void testAppointmentUserIdNotNull() throws IOException {
 		AppointmentDTO appointmentDTO = new AppointmentDTO();
 		appointmentDTO.setUserId(null);
 		Set<ConstraintViolation<AppointmentDTO>> violations = validator.validate(appointmentDTO);
@@ -47,7 +47,7 @@ public class AppointmentBoundaryTest {
 	}
 
 	@Test
-	public void testDoctorIdNotNull() throws IOException {
+	public void testAppointmentDoctorIdNotNull() throws IOException {
 		AppointmentDTO appointmentDTO = new AppointmentDTO();
 		appointmentDTO.setDoctorId(null);
 		Set<ConstraintViolation<AppointmentDTO>> violations = validator.validate(appointmentDTO);
